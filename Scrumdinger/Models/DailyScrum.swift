@@ -26,6 +26,7 @@ struct DailyScrum: Identifiable {
 }
 
 extension DailyScrum {
+	
 	struct Attendee: Identifiable {
 		let id: UUID
 		var name: String
@@ -34,6 +35,17 @@ extension DailyScrum {
 			self.id = id
 			self.name = name
 		}
+	}
+	
+	struct Data {
+		var title: String = ""
+		var attendees: [Attendee] = []
+		var lengthInMinutes: Double = 5
+		var theme: Theme = .seafoam
+	}
+	
+	var data: Data {
+		Data(title: title, attendees: attendees, lengthInMinutes: Double(lengthInMinutes), theme: theme)
 	}
 }
 
